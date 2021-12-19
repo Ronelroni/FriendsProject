@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<div style="border-radius: 5px; box-shadow: 6px 6px 6px blue;">
+<h1> Les amies disponibles </h1>
+<% @users.each do |user|%>
+  <% if current_user.name != user.name %>
+    <strong style="color: green;"> <%= user.name%> </strong>
+  <%end%>
+<% end %>
+</div>
+<br/>
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
+
