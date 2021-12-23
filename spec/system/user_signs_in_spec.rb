@@ -10,7 +10,7 @@ RSpec.feature 'User signs in', type: :system do
     fill_in 'user[password]', with: user.password
     click_button 'Connecter'
 
-    expect(page).to have_text 'Nouvelle publication'
+    expect(page).to have_text 'Nouvelle publications'
   end
 
   scenario 'with invalid credentials' do
