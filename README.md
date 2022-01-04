@@ -11,7 +11,7 @@ Things you may want to cover:
 
 Devise
 
-Fonction de Commentaire
+Fonction Favorite
 
 ## Technologies outside the curriculum
 
