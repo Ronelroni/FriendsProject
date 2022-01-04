@@ -1,15 +1,14 @@
 <p id="notice"><%= notice %></p>
 <div class="text-center">
-  <h2>Toutes Publications</h2>
+  <h2>Mes Favorites</2>
 </div>
 
 <div style="margin-top: 50px;">
 
 <div class="row">
-
-  <% @publications.each do |publication| %>
+  <% @favorites.each do |favori| %>
   
-
+ 
   <div class="col-md-4">
     
   </div>
@@ -21,30 +20,30 @@
         &nbsp;&nbsp;&nbsp;
       <i class="fas fa-user"></i>
         &nbsp;
-        <% @users.each do |usere| %>
-          <% if publication.user_id == usere.id %>
+        <% @favorites.each do |usere| %>
+          <% if favori.user_id == usere.id %>
               <%= usere.name %>
           <% end %>
         <% end %>
         </p>
         <div class="card-body">
           <img
-            src="<%= publication.image %>"
+            src="<%= favori.publication.image %>"
             class="card-img-top"
             alt="..."
           />
         </div>
         <div class="text-center">
-          <%= publication.content %><br>
+          <%= favori.publication.content %><br>
         </div><br>
         <div class="card-footer"></div>
           <div class="flex text-center">
-            <% if publication.user_id == current_user.id %>
+            <% if favori.publication.user_id == current_user.id %>
               <%= link_to 'Voir', publication %>||
               <%= link_to 'Modifier', edit_publication_path(publication) %> ||
               <%= button_to 'Supprimer', publication, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% else %>
-              <%= link_to 'Voir', publication %>
+              <%= link_to 'Voir', favori.publication %>||
             <% end %>
           </div>
     <div class="card-body">
@@ -54,7 +53,7 @@
       <div class="row">
         <div class="col-6 ">
           <p class="card-text">
-            <small class="text-muted">Publié le <%= publication.created_at %></small>
+            <small class="text-muted">Publié le <%= favori.created_at %></small>
           </p>
           <br>
         </div>
@@ -62,7 +61,7 @@
       </div>
 
     </div> 
-</div>
+  </div>
 
 </div>
 
@@ -70,3 +69,5 @@
 
 </div>
 <br></br>
+
+<%= link_to 'Back', favorites_path %>

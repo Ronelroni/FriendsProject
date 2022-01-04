@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :likes, only: [:create, :destroy]
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy, :index]
   get '/publications_publication', to:'publications#publication', as: 'allpub'
   get '/publications_publi', to:'publications#publi', as: 'userpub'
   if Rails.env.development?

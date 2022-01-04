@@ -10,6 +10,7 @@
                     <%= link_to "Toutes les publications", allpub_path, class: "btn btn-white" %> &nbsp;&nbsp;
                     <%= link_to "Mes Publications", userpub_path, class: "btn btn-white" %> &nbsp;&nbsp;
                     <%= link_to "Profile", profil_path, class: "btn btn-white" %> &nbsp;&nbsp;
+                    <%= link_to "Mes Favoris", favorites_path, class: "btn btn-white" %> &nbsp;&nbsp;
                     <% if current_user.is_admin? %>
                         <%= link_to "Admin", guess_admin_path, class: "btn btn-outline-warning" %> &nbsp;&nbsp;&nbsp;
                     <% end %>

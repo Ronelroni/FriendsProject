@@ -1,5 +1,9 @@
 class FavoritesController < ApplicationController
-    def create
+       def index
+          @favorites = current_user.favorites.all 
+          puts @favorites
+         end
+      def create
         favorite = current_user.favorites.create(publication_id: params[:publication_id])
         redirect_to publication_path(favorite.publication), notice: "Publication ajoutée aux favories"
       end
