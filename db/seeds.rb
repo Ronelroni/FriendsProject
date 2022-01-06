@@ -5,26 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-5.times do |n|
-    name = "name#{n}"
-    email = "email#{n}add@xel.com"
-    puts email
-    password = "password"
-    user = User.create!(name: name, email: email, password: password)
-    5.times do |n|
-        image = "image#{n}"
-        content = "word#{n}"
-        publication = Publication.create!(user_id: user.id, image: image, content: content)
-        5.times do |n|
-            content = "word#{n}"
-            Comment.create!(user_id: user.id, publication_id: publication.id, content: content)
+#5.times do |n|
+    #name = "name#{n}"
+    #email = "email#{n}add@xel.com"
+    #puts email
+    #password = "password"
+    #user = User.create!(name: name, email: email, password: password)
+    #5.times do |n|
+        #image = "image#{n}"
+        #content = "word#{n}"
+        #publication = Publication.create!(user_id: user.id, image: image, content: content)
+        #5.times do |n|
+            #content = "word#{n}"
+            #Comment.create!(user_id: user.id, publication_id: publication.id, content: content)
             
-        end
+        #end
         
-    end
+    #end
     
-end
-5.times do |n|
-    Group.create!(name:"name#{n}")
-end  
+#end
+#5.times do |n|
+    #Group.create!(name:"name#{n}")
+#end  
+User.create(email: "admin@example.com", password: "password", is_admin: true)
 
