@@ -2,6 +2,7 @@ require 'rails_helper'
 RSpec.describe 'Fonction de gestion des publication', type: :system do
     before do
         user = create :user
+        user_id = user.id
 
         visit new_user_session_path
 
@@ -28,6 +29,16 @@ RSpec.describe 'Fonction de gestion des publication', type: :system do
             click_on "publier"
 
             expect(page).to have_content "Le bonheur est ici avec nous"
+        end
+
+        it "La liste des publications créées s'affiche" do
+            @user = FactoryBot.create(:user, email: "zepaqp@example.com", password: "password")
+            FactoryBot.create(:publication, content: "le bonheur est ici", user_id: @user.id)
+            FactoryBot.create(:publication, content: "Bonne et heureuse année", user_id: @user.id)
+            
+            visit allpub_path
+            
+            expect(page).to have_content "Bonne et heureuse année"
         end
 
         it "Supprimer une publication" do
